@@ -59,8 +59,8 @@ Feel free to use the following pre-configured credentials to evaluate the projec
 
 ### Admin Role (Full Access)
 - **Email:** `admin@test.com`
-- **Password:** `admin123`
-*(Note: As an Admin, you can view all tasks across the platform. If not seeded, you may register this account and manually escalate the role in MongoDB).*
+- **Password:** `password123`
+*(Note: As an Admin, you can view all tasks across the platform. If not seeded, you may register this account via Postman using `role: admin`).*
 
 ## Scalability Notes
 If you plan to scale this application for thousands of users:
