@@ -52,9 +52,15 @@ Import `TaskFlow-Postman-Collection.json` into Postman to instantly populate you
 
 ## Testing Credentials
 Feel free to use the following pre-configured credentials to evaluate the project:
-- **Admin Email:** `wasim@test.com`
+
+### User Role (Basic Access)
+- **Email:** `wasim@test.com`
 - **Password:** `wasim@1`
-*(Note: As an Admin, you can view all tasks across the platform. You may register normally for a standard basic 'user' account).*
+
+### Admin Role (Full Access)
+- **Email:** `admin@test.com`
+- **Password:** `admin123`
+*(Note: As an Admin, you can view all tasks across the platform. If not seeded, you may register this account and manually escalate the role in MongoDB).*
 
 ## Scalability Notes
 If you plan to scale this application for thousands of users:
