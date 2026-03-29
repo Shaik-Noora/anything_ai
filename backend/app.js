@@ -2,20 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
-const swaggerUi = require('swagger-ui-express');
-const YAML = require('yamljs');
-const path = require('path');
 const { errorHandler, notFound } = require('./middleware/errorMiddleware');
 
 const app = express();
-
-// Load swagger document
-let swaggerDocument;
-try {
-  swaggerDocument = YAML.load(path.join(__dirname, 'docs', 'swagger.yaml'));
-} catch (error) {
-  console.log('Swagger document not found. Skipping API docs.');
-}
 
 // Security & Middleware
 app.use(express.json());
@@ -34,11 +23,6 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try again after 15 minutes'
 });
 app.use('/api', limiter);
-
-// API Documentation
-if (swaggerDocument) {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-}
 
 // Routes Definition
 app.use('/api/v1/auth', require('./routes/authRoutes'));

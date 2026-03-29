@@ -7,8 +7,8 @@ A modern, responsive, full-stack Task Management application built with the MERN
 - **Database**: MongoDB (Mongoose ORM)
 - **Authentication**: JSON Web Token (JWT), bcryptjs
 - **Frontend**: React (Vite setup)
-- **Styling**: Vanilla CSS (Glassmorphism, CSS Variables, Animations)
-- **API UI & Testing**: Swagger UI (Local deployment available at `/api-docs`) Let's define it as Postman-ready as well since it consumes a REST architecture.
+- **Styling**: Vanilla CSS (Premium Glassmorphism, CSS Variables, Animations)
+- **API Testing**: Postman Collection (Included in root directory)
 
 ## API Endpoints
 
@@ -30,6 +30,7 @@ A modern, responsive, full-stack Task Management application built with the MERN
 4. **Middleware Validation**: Backend `protect` middleware verifies the token and retrieves the current user instance.
 
 ## Database Schema
+Mongoose collections are strictly assigned to `myusers` and `mytask`.
 - **User**: Name (String), Email (String, Unique), Password (String, Hashed), Role (Enum: 'user', 'admin').
 - **Task**: Title (String), Description (String), Status (Enum: 'pending', 'in-progress', 'completed'), User (ObjectId Ref to User).
 
@@ -38,7 +39,7 @@ A modern, responsive, full-stack Task Management application built with the MERN
 ### Backend setup
 1. Navigate to the `/backend` directory: `cd backend`
 2. Install dependencies: `npm install`
-3. Configure `backend/.env` (example provided in the codebase but modify `MONGO_URI` if running MongoDB locally or in Atlas).
+3. Configure `backend/.env` (ensure `MONGO_URI` is mapped to your actual MongoDB connection string).
 4. Start backend: `npm run dev` (running on `http://localhost:5000`)
 
 ### Frontend Setup
@@ -46,12 +47,14 @@ A modern, responsive, full-stack Task Management application built with the MERN
 2. Install dependencies: `npm install`
 3. Start frontend: `npm run dev`
 
+### Postman Testing
+Import `TaskFlow-Postman-Collection.json` into Postman to instantly populate your workspace with pre-configured API queries.
+
 ## Scalability Notes
 If you plan to scale this application for thousands of users:
 - **Horizontal Scaling**: You can run multiple instances of the Node.js API server behind a Reverse Proxy / Load Balancer (like NGINX or AWS ALB).
 - **Microservices**: Extract the user/auth logic into its own service separately from the task service using an event bus (RabbitMQ, Kafka).
-- **Caching**: Implement Redis to cache frequent but less mutable queries (e.g. static configuration or aggregate data).
 - **Database Indexing**: Create proper MongoDB indexes on `user` field in the Task schema and `email` field in the User schema to maintain rapid query execution rates.
 
 ## Notes
-*This project does not include Docker integration as requested. You can find the Swagger YAML spec at `/backend/docs/swagger.yaml` for Postman/Swagger usages.*
+*This project does not include Docker integration as explicitly requested. Logging is handled cleanly via Winston & Morgan, and Security is managed automatically via Express Rate Limiting.*
