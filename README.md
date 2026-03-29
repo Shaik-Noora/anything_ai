@@ -58,8 +58,8 @@ Feel free to use the following pre-configured credentials to evaluate the projec
 - **Password:** `wasim@1`
 
 ### Admin Role (Full Access)
-- **Email:** `admin@test.com`
-- **Password:** `password123`
+- **Email:** `noora@test.com`
+- **Password:** `123456`
 *(Note: As an Admin, you can view all tasks across the platform. If not seeded, you may register this account via Postman using `role: admin`).*
 
 ## Scalability Notes
