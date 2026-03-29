@@ -14,6 +14,15 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Explicit Front-end Input Validation
+    if (!email || !password) {
+      return setError('Please fill in all fields.');
+    }
+    if (password.length < 6) {
+      return setError('Password must be at least 6 characters long.');
+    }
+
     setIsLoading(true);
     setError('');
     
