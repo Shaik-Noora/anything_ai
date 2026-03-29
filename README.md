@@ -50,6 +50,12 @@ Mongoose collections are strictly assigned to `myusers` and `mytask`.
 ### Postman Testing
 Import `TaskFlow-Postman-Collection.json` into Postman to instantly populate your workspace with pre-configured API queries.
 
+## Testing Credentials
+Feel free to use the following pre-configured credentials to evaluate the project:
+- **Admin Email:** `wasim@test.com`
+- **Password:** `wasim@1`
+*(Note: As an Admin, you can view all tasks across the platform. You may register normally for a standard basic 'user' account).*
+
 ## Scalability Notes
 If you plan to scale this application for thousands of users:
 - **Horizontal Scaling**: You can run multiple instances of the Node.js API server behind a Reverse Proxy / Load Balancer (like NGINX or AWS ALB).
